@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 
 var HelloWorld = React.createClass({
   render: function() {
+    console.log(this.props);
     return (
       <div>Hello World</div>
     )
@@ -10,6 +11,6 @@ var HelloWorld = React.createClass({
 });
 
 ReactDOM.render(
-  <HelloWorld />,
+  <HelloWorld name='Daniel' anySortOfData={29}/>,
   document.getElementById('app')
 );
