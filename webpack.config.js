@@ -16,15 +16,20 @@ module.exports = {
     filename: 'index_bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }]
   },
   plugins: [
     HtmlWebpackPluginConfig
-  ]
+  ],
+  devServer: {
+    port: 3000,
+    // historyApiFallback: {
+    //   index: 'index.html'
+    // }
+    historyApiFallback: true
+  }
 }
