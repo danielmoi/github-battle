@@ -1,6 +1,8 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+var styles = require('../styles');
+
 function puke(obj) {
   return (
     <pre> { JSON.stringify(obj, null, ' ')} </pre>
@@ -10,7 +12,35 @@ function puke(obj) {
 function ConfirmBattle(props) {
   return props.isLoading === true
     ? <p> LOADING! </p>
-  : <div> CONFIRM BATTLE!: { puke(props) } </div>
+    : <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+        <h1>Confirm Battle</h1>
+        <div className="col-sm-8 col-sm-offset-2">
+
+          <div className="col-sm-6">
+            <p className="lead">Player 1</p>
+            PLAYER 1 INFO
+          </div>
+
+          <div className="col-sm-6">
+            <p className="lead">Player 2</p>
+            PLAYER 2 INFO
+          </div>
+
+        </div>
+
+        <div className="col-sm-8 col-sm-offset-2">
+          <div className="col-sm-12" style={styles.space}>
+            INITIATE BATTLE BUTTON
+          </div>
+        </div>
+
+        <div className="col-sm-8 col-sm-offset-2">
+          <div className="col-sm-12" style={styles.space}>
+            LINK TO /PLAYERONE
+          </div>
+        </div>
+        
+      </div>
 }
 
 ConfirmBattle.propTypes = {
