@@ -18,12 +18,12 @@ function ConfirmBattle(props) {
 
           <div className="col-sm-6">
             <p className="lead">Player 1</p>
-            PLAYER 1 INFO
+            { puke(props.playersInfo[0]) }
           </div>
 
           <div className="col-sm-6">
             <p className="lead">Player 2</p>
-            PLAYER 2 INFO
+            { puke(props.playersInfo[1]) }
           </div>
 
         </div>
@@ -39,7 +39,7 @@ function ConfirmBattle(props) {
             LINK TO /PLAYERONE
           </div>
         </div>
-        
+
       </div>
 }
 
