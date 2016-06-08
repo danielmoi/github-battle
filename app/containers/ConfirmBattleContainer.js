@@ -10,7 +10,7 @@ var ConfirmBattleContainer = React.createClass({
     console.log('getInitialState');
     return {
       isLoading: true,
-      playerInfo: []
+      playersInfo: []
     }
   },
   componentDidMount: function() {
@@ -22,14 +22,18 @@ var ConfirmBattleContainer = React.createClass({
 
     // when githubHelpers resolves
     .then(function(arrData){
-      console.log(arrData);
-    });
+      this.setState({
+        isLoading: false,
+        playersInfo: [arrData[0], arrData[1]]
+      })
+    // explicitly set `this`, note that `bind` follows the curly brace
+    }.bind(this));
   },
   render: function() {
     return (
       <ConfirmBattle
         isLoading={ this.state.isLoading }
-        playerInfo={ this.state.playerInfo }
+        playersInfo={ this.state.playersInfo }
       />
 
     )

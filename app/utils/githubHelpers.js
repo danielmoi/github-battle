@@ -13,24 +13,25 @@ var helpers = {
     // fetch some data from GitHub
 
     // axios.all takes an array of promises, and when each of those promises are resolved, the axios.then will be invoked
-    return axios.all(players.map(function(username){
+    return axios.all(players.map(function(username) {
 
-      // returns a promise for each username in the players array
-      return getUserInfo(username);
-    }))
+        // returns a promise for each username in the players array
+        return getUserInfo(username);
+      }))
       // when all our axios promises resolve
       .then(function(info) {
         return info.map(function(user) {
           return user.data;
         })
+      })
 
-      // error handling
-      .catch(function(err) {
-        console.log('Error in getPlayersInfo', err);
-      });
+    // error handling
+    .catch(function(err) {
+      console.warn('Error in getPlayersInfo', err);
     });
-
   }
+
+
 
 };
 
