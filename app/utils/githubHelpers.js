@@ -20,7 +20,9 @@ var helpers = {
     }))
     // when all our axios promises resolve
     .then(function(info) {
-      console.log('INFO', info);
+      return info.map(function(user) {
+        return user.data;
+      });
     });
 
   }
