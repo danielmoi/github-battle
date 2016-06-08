@@ -17,7 +17,10 @@ var ConfirmBattleContainer = React.createClass({
     var query = this.props.location.query;
 
     // Fetch data from GitHub, then update state
+    // call githubHelpers
     githubHelpers.getPlayersInfo([ query.playerOne, query.playerTwo ])
+
+    // when githubHelpers resolves
     .then(function(arrData){
       console.log(arrData);
     });

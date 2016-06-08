@@ -18,10 +18,15 @@ var helpers = {
       // returns a promise for each username in the players array
       return getUserInfo(username);
     }))
-    // when all our axios promises resolve
-    .then(function(info) {
-      return info.map(function(user) {
-        return user.data;
+      // when all our axios promises resolve
+      .then(function(info) {
+        return info.map(function(user) {
+          return user.data;
+        })
+
+      // error handling
+      .catch(function(err) {
+        console.log('Error in getPlayersInfo', err);
       });
     });
 
