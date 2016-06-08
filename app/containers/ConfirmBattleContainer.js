@@ -12,9 +12,18 @@ var ConfirmBattleContainer = React.createClass({
       playerInfo: []
     }
   },
+  componentDidMount: function() {
+    var query = this.props.location.query;
+
+    // Fetch data from GitHub, then update state
+  },
   render: function() {
     return (
-      <ConfirmBattle></ConfirmBattle>
+      <ConfirmBattle
+        isLoading={ this.state.isLoading }
+        playerInfo={ this.state.playerInfo }
+      />
+
     )
   }
 });
