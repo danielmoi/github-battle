@@ -16,7 +16,7 @@ function puke(obj) {
 
 function ConfirmBattle(props) {
   return props.isLoading === true
-    ? <Loading />
+    ? <Loading speed={100} text="Wait one moment please"/>
   : <MainContainer>
         <h1>Confirm Battle</h1>
         <div className="col-sm-8 col-sm-offset-2">

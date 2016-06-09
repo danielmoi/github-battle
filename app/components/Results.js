@@ -5,6 +5,7 @@ var styles = require('../styles');
 var UserDetails = require('../components/UserDetails');
 var UserDetailsWrapper = require('../components/UserDetailsWrapper');
 var MainContainer = require('../containers/MainContainer');
+var Loading = require('../components/Loading');
 
 function StartOver(props) {
   return (
@@ -25,7 +26,7 @@ function puke(obj) {
 function Results(props) {
   if (props.isLoading === true) {
     return (
-      <p> LOADING </p>
+      <Loading speed={800} text="Results are loading" />
     )
   }
 
