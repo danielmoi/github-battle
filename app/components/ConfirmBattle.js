@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 var PropTypes = React.PropTypes;
 
 var styles = require('../styles');
@@ -41,7 +42,14 @@ function ConfirmBattle(props) {
 
         <div className="col-sm-8 col-sm-offset-2">
           <div className="col-sm-12" style={styles.space}>
-            LINK TO /PLAYERONE
+            <Link to='/playerOne' >
+              <button
+                type="button"
+                className="btn btn-lg btn-danger">
+                Reselect Players
+              </button>
+
+            </Link>
           </div>
         </div>
 
