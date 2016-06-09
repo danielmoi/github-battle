@@ -10,4 +10,8 @@ function UserDetailsWrapper(props) {
   )
 }
 
+UserDetailsWrapper.propTypes = {
+  
+}
+
 module.exports = UserDetailsWrapper;
