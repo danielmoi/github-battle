@@ -20,12 +20,14 @@ function ConfirmBattle(props) {
 
           <div className="col-sm-6">
             <p className="lead">Player 1</p>
-              <UserDetails user={ props.playersInfo[0] }/>
+              <UserDetails
+                info={ props.playersInfo[0] } />
           </div>
 
           <div className="col-sm-6">
             <p className="lead">Player 2</p>
-            <UserDetails user={ props.playersInfo[1] } />
+            <UserDetails
+              info={ props.playersInfo[1] } />
           </div>
 
         </div>
