@@ -5,6 +5,15 @@ var styles = require('../styles');
 var UserDetails = require('../components/UserDetails');
 var UserDetailsWrapper = require('../components/UserDetailsWrapper');
 
+function StartOver(props) {
+  return (
+    <div className="col-sm-12" style={ styles.space }>
+      <Link to="/playerOne" >
+        <button type="button" className="btn btn-lg btn-danger">Start Over</button>
+      </Link>
+    </div>
+  )
+}
 
 function puke(obj) {
   return (
@@ -13,6 +22,11 @@ function puke(obj) {
 }
 
 function Results(props) {
+  if (props.isLoading === true) {
+    return (
+      <p> LOADING </p>
+    )
+  }
 
   if (props.scores[0] === props.scores[1] ) {
     return (
@@ -28,16 +42,14 @@ function Results(props) {
 
           <UserDetailsWrapper>
             <UserDetails
-              score={ props.scores[1 ]}
+              score={ props.scores[1]}
               info={ props.playersInfo[1] } />
           </UserDetailsWrapper>
         </div>
 
-        <div className="col-sm-12" style={ styles.space }>
-          <Link to="/playerOne" >
-            <button type="button" className="btn btn-lg btn-danger">Start Over</button>
-          </Link>
-        </div>
+        <StartOver />
+
+
 
       </div>
     )
