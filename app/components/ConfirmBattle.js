@@ -8,12 +8,6 @@ var Loading = require('../components/Loading');
 
 var styles = require('../styles');
 
-function puke(obj) {
-  return (
-    <pre> { JSON.stringify(obj, null, ' ')} </pre>
-  )
-}
-
 function ConfirmBattle(props) {
   return props.isLoading === true
     ? <Loading speed={100} text="Wait one moment please"/>
