@@ -10,20 +10,37 @@ function getUserInfo(username) {
 
 function getRepos(username) {
   // fetch usernames repos
+  return axios.get('https://api.github.com/users/' + username + '/repos' + param + '&per_page=100');
+
 }
 
-function getTotalStars(stars) {
+function getTotalStars(repos) {
   // calculate all the stars user has
+  return repos.data.reduce(function(sofar, next) {
+    return sofar + next.stargazers_count;
+  }, 0);
 }
 
 function getPlayersData(player) {
   // get repo
+  return getRepos(player.login)
   // get total stars
+    .then(getTotalStars)
   // return object with that data
+    .then(function(totalStars) {
+      return {
+        followers: player.followers,
+        totalStars: totalStars
+      };
+    });
 }
 
 function calculateScores(players) {
   // return array, after doing some fancy algorithms to determine a winner
+  return [
+    players[0].followers * 3 + players[0].totalStars,
+    players[1].followers * 3 + players[1].totalStars,
+  ]
 }
 
 var helpers = {
@@ -50,8 +67,13 @@ var helpers = {
   },
 
   battle: function(players) {
-    console.log('BATTLE METHOD');
-    return {}
+    var playerOneData = getPlayersData(players[0]);
+    var playerTwoData = getPlayersData(players[1]);
+    return axios.all([playerOneData, playerTwoData])
+      .then(calculateScores)
+      .catch(function(err) {
+        console.warn('Error in getPlayersInfo:', err);
+      })
   }
 
 
