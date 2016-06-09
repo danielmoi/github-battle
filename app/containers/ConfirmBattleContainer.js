@@ -22,7 +22,7 @@ var ConfirmBattleContainer = React.createClass({
     // when githubHelpers resolves
     .then(function(arrData){
       this.setState({
-        isLoading: false,
+        isLoading: true,
         playersInfo: [arrData[0], arrData[1]]
       })
     // explicitly set `this`, note that `bind` follows the curly brace
