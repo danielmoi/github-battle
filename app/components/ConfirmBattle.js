@@ -2,6 +2,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 var PropTypes = React.PropTypes;
 var UserDetails = require('../components/UserDetails');
+var UserDetailsWrapper = require('../components/UserDetailsWrapper');
 
 var styles = require('../styles');
 
@@ -18,17 +19,15 @@ function ConfirmBattle(props) {
         <h1>Confirm Battle</h1>
         <div className="col-sm-8 col-sm-offset-2">
 
-          <div className="col-sm-6">
-            <p className="lead">Player 1</p>
-              <UserDetails
-                info={ props.playersInfo[0] } />
-          </div>
+          <UserDetailsWrapper header="Player 1">
+            <UserDetails
+              info={ props.playersInfo[0] } />
+          </UserDetailsWrapper>
 
-          <div className="col-sm-6">
-            <p className="lead">Player 2</p>
+          <UserDetailsWrapper header="Player 2">
             <UserDetails
               info={ props.playersInfo[1] } />
-          </div>
+          </UserDetailsWrapper>
 
         </div>
 
